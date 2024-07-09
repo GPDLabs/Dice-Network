@@ -16,6 +16,7 @@ In order to bring true fair chances to decentralized networks, especially blockc
 Dices Network is a DePIN (decentrlized physical infra network) project of bringing quantum random numbers to blockchains. Since quantum randomness leads to undetermined chances and free will, Dices Network would make Web3 a truly fair Internet. 
 
 ![Image](https://github.com/users/GPDLabs/projects/1/assets/175085721/f9062465-2d60-4766-919f-40688b93d134)
+
 Fig.1 Dices Network's logo 
 
 Dices Network's logo is the probability distribution of an electron in (3,2,1) atomic orbit, which is the modulus square of the electron's wavefunction. It is a typical example of quantum randomness from the probability of finding an electron around a nuclei.
@@ -36,6 +37,7 @@ A VQR node is a server for decentralized cloud or edge computing. It stores hash
 For fairness, every VQR node's algorithm is same and open. A VQR node has no function of generating quantum random numbers either. It only verifies quantum random numbers from related QR nodes.
 
 ![Image](https://github.com/users/GPDLabs/projects/1/assets/175085721/fbd5b561-e64a-46d6-80aa-4ad621aaac85)
+
 Fig. 2 Structure of Dice Network. QR: Quantum Randomness node, VQR: Verifiable Quantum Randomness node. 
 
 >>**2.2 Proof-of-Randomness consensus**
@@ -77,6 +79,7 @@ When a VQR node outputs verifiable quantum random numbers like an oracle machine
 - Quantum random number output. When VQR(m) is ready, it becomes the output quantum random number in time round m+1. A smart contract asks for verified quantum random numbers from a VQR node in time round m+1 will get the VQR(m). In a time round, one VQR node only services one smart contract. Therefore, the performance of quantum random number service is proportional to the number of VQR nodes, which means more QR nodes and more mining.
 
 ![Image](https://github.com/users/GPDLabs/projects/1/assets/175085721/7e153a2d-1e3d-4001-9c99-d912b5fb088e)
+
 Fig. 4 Relation between PoR mining and Quantum VRF
 
 
@@ -132,6 +135,7 @@ When the Dice Network is relatively big, a quantum randomness blockchain "Dice C
 Dice Chain may give a solution to blockchain trilemma. Its network structure is inherited from Dice Network, which is well decentralized. PoR protocol can improve the consensus efficiency of Dice Chain to support a 100k tps transcating rate, which makes Dice Chain scalable. PoR protocol also generates unpredictable blocks with very low energy cost, where security is ensured. Dice Chain's wallets can adopt PQC algorithm with quantum random private keys to defend against futher quantum computers.   
 
 ![Image](https://github.com/users/GPDLabs/projects/1/assets/175085721/2945c209-7f3c-4d18-9c04-0fa348b09625)
+
 Fig. 5 Structure of Dice Chain. HQR: Heavy Quantum Randomness node, VQR: Verifiable Quantum Randomness node.  
 
 
