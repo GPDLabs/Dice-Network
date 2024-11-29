@@ -50,8 +50,8 @@ public class ScheduledTask {
     @Autowired
     private FileManager fileManager;
 
-    @Autowired
-    private Submit submit;
+//    @Autowired
+//    private Submit submit;
 
     private final Lottery lottery = new Lottery();
 
