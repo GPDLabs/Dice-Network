@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.gpd.dicenetwork.wallet.mapper.WalletMapper">
+
+    <resultMap id="WalletResultMap" type="org.gpd.dicenetwork.wallet.entity.WalletEntity">
+        <id property="id" column="id"/>
+        <result property="qrId" column="qr_id"/>
+        <result property="walletAddr" column="wallet_addr"/>
+        <result property="pubKey" column="pub_key"/>
+        <result property="isMaster" column="is_master"/>
+        <result property="onlineStatus" column="online_status"/>
+        <result property="walletStatus" column="wallet_status"/>
+    </resultMap>
+
+    <select id="selectAll" resultMap="WalletResultMap">
+        SELECT * FROM wallet_list
+    </select>
+
+    <select id="selectById" parameterType="long" resultMap="WalletResultMap">
+        SELECT * FROM wallet_list WHERE id = #{id}
+    </select>
+
+    <insert id="insert" parameterType="org.gpd.dicenetwork.wallet.entity.WalletEntity" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO wallet_list (qr_id, wallet_addr, pub_key, is_master, online_status, wallet_status)
+        VALUES (#{qrId}, #{walletAddr}, #{pubKey}, #{isMaster}, #{onlineStatus}, #{walletStatus})
+    </insert>
+
+    <select id="selectByWalletAddr" resultMap="WalletResultMap">
+        SELECT * FROM wallet_list WHERE wallet_addr = #{walletAddr}
+    </select>
+
+    <select id="selectByQrIdAndIsMaster" resultMap="WalletResultMap">
+        SELECT * FROM wallet_list WHERE qr_id = #{qrId} AND is_master = #{isMaster}
+    </select>
+
+    <update id="updateById" parameterType="org.gpd.dicenetwork.wallet.entity.WalletEntity">
+        UPDATE wallet_list
+        SET qr_id = #{qrId},
+            wallet_addr = #{walletAddr},
+            pub_key = #{pubKey},
+            is_master = #{isMaster},
+            online_status = #{onlineStatus},
+            wallet_status = #{walletStatus}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteById" parameterType="long">
+        DELETE FROM wallet_list WHERE id = #{id}
+    </delete>
+
+    <select id="selectByWalletAddrs" parameterType="java.util.List" resultType="org.gpd.dicenetwork.wallet.entity.WalletEntity">
+        SELECT * FROM wallet_list
+        WHERE wallet_addr IN
+        <foreach collection="walletAddrs" item="walletAddr" open="(" separator="," close=")">
+            #{walletAddr}
+        </foreach>
+    </select>
+
+    <select id="selectByQrId" parameterType="string" resultType="org.gpd.dicenetwork.wallet.entity.WalletEntity">
+        SELECT * FROM wallet_list WHERE qr_id = #{qrId}
+    </select>
+
+</mapper>
